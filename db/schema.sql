@@ -3,16 +3,25 @@ CREATE DATABASE employe_db;
 
 USE employe_db;
 
-CREATE TABLE employe_db (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  employe_name VARCHAR(100) NOT NULL
+CREATE TABLE employe (
+  id INT NOT NULL AUTO_INCREMENT ,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  role_id INT NOT NULL,
+  manager_id INT,
+  PRIMARY KEY (id)
 );
 
-CREATE TABLE reviews (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    employe_id INT,
-    review TEXT NOT NULL,
-    FOREIGN KEY (employe_id)
-    REFERENCES employe(id)
-    ON DELETE SET NULL
+CREATE TABLE department (
+    id INT NOT NULL AUTO_INCREMENT ,
+    name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE role (
+  id INT NOT NULL AUTO_INCREMENT ,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL(10,2) NOT NULL,
+  department_id INT NOT NULL,
+  PRIMARY KEY (id)
 );
